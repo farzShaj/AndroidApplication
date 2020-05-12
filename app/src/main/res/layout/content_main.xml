@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="?attr/colorButtonNormal"
+    android:visibility="visible"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+  <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:adjustViewBounds="false"
+    android:scaleType="centerCrop"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0"
+    app:srcCompat="@drawable/distance2" />
+
+  <TextView
+    android:id="@+id/textView4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Conversion:"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/appname" />
+
+  <TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="24dp"
+    android:fontFamily="sans-serif"
+    android:text="Conversion History:"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/output" />
+
+  <TextView
+    android:id="@+id/input"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:text="Miles Value:"
+    android:textAlignment="center"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="@+id/indegree"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/indegree" />
+
+  <RadioGroup
+    android:id="@+id/radioGroup"
+    android:layout_width="200dp"
+    android:layout_height="70dp"
+    android:layout_marginStart="68dp"
+    android:layout_marginTop="6dp"
+    android:checkedButton="@id/mToK"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+    <RadioButton
+      android:id="@+id/mToK"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:onClick="onSelect"
+      android:text="Miles to Kilometers"
+      android:textColor="@android:color/secondary_text_light"
+      android:textSize="18sp" />
+
+    <RadioButton
+      android:id="@+id/kToM"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:onClick="onSelect"
+      android:text="Kilometers to Miles"
+      android:textColor="@android:color/secondary_text_light"
+      android:textSize="18sp" />
+  </RadioGroup>
+
+  <TextView
+    android:id="@+id/output"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:text="Kilometers Value:"
+    android:textAlignment="center"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="@+id/outdegree"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/outdegree" />
+
+  <EditText
+    android:id="@+id/indegree"
+    android:layout_width="165dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:autoText="false"
+    android:background="#23000000"
+    android:ems="10"
+    android:gravity="center_horizontal|center_vertical"
+    android:inputType="numberSigned|numberDecimal"
+    android:textAlignment="center"
+    android:textSize="24sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+  <TextView
+    android:id="@+id/history"
+    android:layout_width="0dp"
+    android:layout_height="130dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="#23000000"
+    android:gravity="start"
+    android:lineSpacingExtra="8sp"
+    android:padding="10dp"
+    android:scrollbarAlwaysDrawHorizontalTrack="false"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarDefaultDelayBeforeFade="150"
+    android:scrollbarSize="32dp"
+    android:scrollbarStyle="insideInset"
+    android:textAlignment="viewStart"
+    android:textIsSelectable="false"
+    android:textSize="18sp"
+    android:typeface="sans"
+    app:autoSizeTextType="none"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+  <Button
+    android:id="@+id/convert"
+    android:layout_width="0dp"
+    android:layout_height="35dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="#23000000"
+    android:onClick="convert"
+    android:text="CONVERT"
+    android:textColor="@android:color/secondary_text_light"
+    android:textSize="16sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/indegree" />
+
+  <Button
+    android:id="@+id/clr"
+    android:layout_width="310dp"
+    android:layout_height="35dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="#23000000"
+    android:capitalize="characters"
+    android:focusableInTouchMode="false"
+    android:fontFamily="sans-serif-medium"
+    android:onClick="clear"
+    android:text="CLEAR"
+    android:textAlignment="center"
+    android:textColor="@android:color/secondary_text_light"
+    android:textSize="16sp"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/history" />
+
+  <TextView
+    android:id="@+id/outdegree"
+    android:layout_width="165dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="#23000000"
+    android:cursorVisible="false"
+    android:ems="10"
+    android:gravity="center_horizontal|center_vertical"
+    android:textAlignment="center"
+    android:textSize="24sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/convert" />
+
+  <EditText
+    android:id="@+id/appname"
+    android:layout_width="0dp"
+    android:layout_height="60dp"
+    android:background="#585858"
+    android:editable="false"
+    android:ems="10"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:fontFamily="sans-serif"
+    android:inputType="textPersonName"
+    android:text="Distance Converter"
+    android:textAlignment="center"
+    android:textColor="#E6E6E6"
+    android:textSize="22sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
